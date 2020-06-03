@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<xsd:element name="osm_result" type="ResultType"/>
+ <xsd:complexType name="ResultType">
+ 	<xsd:sequence>
+ 		<xsd:element name="node" type="nodeT" minOccurs="0" maxOccurs="unbounded" />
+  </xsd:sequence>
+ </xsd:complexType>
+ <xsd:complexType name="nodeT">
+   <xsd:sequence>
+ 		<xsd:element name="name">
+      <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+                  <xsd:minLength value="1"/>
+            </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:element>
+ 		<xsd:element name="category" type="categoryT"/>
+		<xsd:element name="location" type="locationT"/>
+		<xsd:element name="phone" type="xsd:string"/>
+    <xsd:element name="website" type="xsd:string"/>
+    <xsd:element name="email" type="xsd:string"/>
+ 	</xsd:sequence>
+  <xsd:attribute name="lat" use="required" type="xsd:float"/>
+  <xsd:attribute name="lon" use="required" type="xsd:float"/>
+ </xsd:complexType>
+ <xsd:complexType name="categoryT">
+  <xsd:sequence>
+    <xsd:element name="type" type="xsd:string"/>
+    <xsd:element name="subtype" type="xsd:string"/>
+  </xsd:sequence>
+ </xsd:complexType>
+
+ <xsd:complexType name="locationT">
+ 	<xsd:sequence>
+    <xsd:element name="city" type="xsd:string"/>
+    <xsd:element name="postcode" type="xsd:string"/>
+    <xsd:element name="street" type="xsd:string"/>
+ 	</xsd:sequence>
+ </xsd:complexType>
+</xsd:schema>
