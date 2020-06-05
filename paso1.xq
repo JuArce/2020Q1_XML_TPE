@@ -15,9 +15,6 @@ declare function local:name_validation($tag) as xs:boolean
     $tag/@k = "name" and string-length($tag/@v/string()) >= 1
 };
 
-<osm_result xsi:noNamespaceSchemaLocation="intermediate.xsd">
-{
-    for $var in
     <nodes>
     {
         for $n in doc("data.xml")//node
@@ -36,10 +33,6 @@ declare function local:name_validation($tag) as xs:boolean
                     <phone>{$n/tag/@v[../@k/string() = "phone"]/string()}</phone>
                     <website>{$n/tag/@v[../@k/string() = "website"]/string()}</website>
                     <email>{$n/tag/@v[../@k/string() = "email"]/string()}</email>
-                </node> 
+                </node>
     }
-    </nodes>/node
-    where some $category in $var//category/type satisfies (local:type_validation($category))
-    return $var  
-}
-</osm_result>
+    </nodes>
