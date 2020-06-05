@@ -1,8 +1,8 @@
 #!/bin/bash
-echo $1
-echo $2
-echo $3
-echo $4
+echo "West: " $1
+echo "South: " $2
+echo "East: " $3
+echo "North: " $4
 
 if (( $(echo "$3 < $1"| bc) || $(echo "$4 < $2"| bc) ))
 then
