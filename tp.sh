@@ -1,7 +1,15 @@
 #!/bin/bash
-$1 -lt $3 | bc 
-if [ $1 -lt $3 | -bc ]
+echo $1
+echo $2
+echo $3
+echo $4
+
+if (( $(echo "$3 < $1"| bc) || $(echo "$4 < $2"| bc) ))
 then
-    curl "https://www.openstreetmap.org/api/0.6/map?bbox=${1},${2},${3},${4}" > "data.xml"
+    echo "Invalid parameters"
+    exit
 fi
-echo hola
+
+curl "https://www.openstreetmap.org/api/0.6/map?bbox=${1},${2},${3},${4}" > "data.xml"
+
+echo "fin"
