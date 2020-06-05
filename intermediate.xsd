@@ -9,17 +9,17 @@
  <xsd:complexType name="nodeT">
    <xsd:sequence>
  		<xsd:element name="name">
-      <xsd:simpleType>
-            <xsd:restriction base="xsd:string">
-                  <xsd:minLength value="1"/>
-            </xsd:restriction>
-      </xsd:simpleType>
-    </xsd:element>
+            <xsd:simpleType>
+                <xsd:restriction base="xsd:string">
+                      <xsd:minLength value="1"/>
+                </xsd:restriction>
+            </xsd:simpleType>
+        </xsd:element>
  		<xsd:element name="category" type="categoryT"/>
 		<xsd:element name="location" type="locationT"/>
 		<xsd:element name="phone" type="xsd:string"/>
-    <xsd:element name="website" type="xsd:string"/>
-    <xsd:element name="email" type="xsd:string"/>
+        <xsd:element name="website" type="xsd:string"/>
+        <xsd:element name="email" type="xsd:string"/>
  	</xsd:sequence>
   <xsd:attribute name="lat" use="required" type="xsd:float"/>
   <xsd:attribute name="lon" use="required" type="xsd:float"/>
