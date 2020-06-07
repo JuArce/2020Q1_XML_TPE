@@ -1,4 +1,4 @@
-# 2020Q1_XML_TPE
+# Readme Trabajo Especial XML
 
 ## Ejecutar el archivo tp.sh:
 
