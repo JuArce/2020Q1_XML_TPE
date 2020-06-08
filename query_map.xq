@@ -1,3 +1,9 @@
+
+declare variable $west external;
+declare variable $south external;
+declare variable $east external;
+declare variable $north external;
+
 declare function local:type_validation($type) as xs:boolean
 {
     $type = "education" or
@@ -6,7 +12,7 @@ declare function local:type_validation($type) as xs:boolean
     $type = "health" or
     $type = "transport" or
     $type = "historic" or
-    $type = "shops" or
+    $type = "shop" or
     $type = "buildings"
 };
 
@@ -36,10 +42,10 @@ declare function local:name_validation($tag) as xs:boolean
                     <phone>{$n/tag/@v[../@k/string() = "phone"]/string()}</phone>
                     <website>{$n/tag/@v[../@k/string() = "website"]/string()}</website>
                     <email>{$n/tag/@v[../@k/string() = "email"]/string()}</email>
-                </node> 
+                </node>
     }
     </nodes>/node
     where some $category in $var//category/type satisfies (local:type_validation($category))
-    return $var  
+    return $var
 }
 </osm_result>
