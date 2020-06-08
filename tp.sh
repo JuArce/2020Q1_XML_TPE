@@ -9,16 +9,25 @@ echo "South: " $south
 echo "East: " $east
 echo "North: " $north
 
-if (( $(echo "$east < $west"| bc) || $(echo "$north < $south"| bc) ))
+# long_regex="[-]?[0-9]{1,3}(\.[0-9]+)?"
+# [-]?[0-9]{1,3}(\.[0-9]+)?
+long_regex="[-]?([0-9]{1,2}|1[0-7][0-9]|180)(\.[0-9]+)?"
+lat_regex="[-]?([0-8][0-9]|90)(\.[0-9]+)?"
+if (( "$west" =~ $long_regex  && "$south" =~ $lat_regex && "$east" =~ $long_regex && "$north" =~ $lat_regex ));
 then
-    echo "Invalid parameters."
-    exit
+    echo "FFFF"
+    if (( $(echo "$west < $east"| bc) && $(echo "$south < $north"| bc) ));
+    then
+        curl "https://www.openstreetmap.org/api/0.6/map?bbox=${west},${south},${east},${north}" > "data.xml"
+        echo "data.xml generated."
+    else
+        echo "Parametros invalidos"
+    fi
 fi
+
 
 #curl "https://www.openstreetmap.org/api/0.6/map?bbox=${west},${south},${east},${north}" > "data.xml"
 #curl "https://www.openstreetmap.org/api/0.6/map?bbox=-74.00,40.711,-73.99,40.73" > "data.xml"
-echo "data.xml generated."
-
 java net.sf.saxon.Query query_map.xq west=$west south=$south east=$east north=$north > intermediate.xml
 echo "intermediate.xml generated."
 

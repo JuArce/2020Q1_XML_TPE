@@ -15,4 +15,6 @@
 <xsl:template name="printHeader">Name, Category Type, Category Subtype, Phone, Website, Email, Geographic Location
 </xsl:template>
 
+<xsl:template match="result"/>
+
 </xsl:transform>
