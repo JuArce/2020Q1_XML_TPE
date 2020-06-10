@@ -5,8 +5,8 @@
 Para ejecutar el programa, se debe contar con los siguientes archivos en el directorio donde se está trabajando:
 
 ### tp.sh
-###query_map.xq
-###convert_csv.xsl
+### query_map.xq
+### convert_csv.xsl
 
 Además se debe tener instalado Java, Xerces, y Saxon.
 
@@ -14,7 +14,15 @@ Además se debe tener instalado Java, Xerces, y Saxon.
 
 tp.sh se ejecuta pasando como parametros las coordenadas deseadas en el orden west, south, east y north, de la siguiente manera:
 
-### ./tp.sh west=-74.00 south=40.711 east=-73.99 north=40.73
+### ./tp.sh west= longitud  south=latitud east= longitud north= latitud
 
 Al ingresar dicho comando se notificará el proceso de lectura y al finalizar será generado automáticamente un archivo “output.csv” con la información de salida en el mismo directorio. 
 En caso de que el archivo “output.csv” se encuentre vacío, en  “intermediate.xml” se encontrarán los errores ocurridos durante la ejecución.
+
+Los valores permitidos para west y east son [-180, 180], y además west < east. Los valores permitidos para south y north son [-90, 90], y south < north.
+
+### Errores administrados
+
+El manejo de errores se realiza en el archivo de XQuery, donde los posibles errores son:
+ #### Parametro x (longitud o latid
+
