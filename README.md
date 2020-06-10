@@ -21,7 +21,7 @@ En caso de que el archivo “output.csv” se encuentre vacío, en  “intermedi
 
 Los valores permitidos para west y east son [-180, 180], y además west < east. Los valores permitidos para south y north son [-90, 90], y south < north.
 
-### Errores administrados
+## Errores administrados
 
 El manejo de errores se realiza en el archivo de XQuery, donde los posibles errores son:
  #### The X (parametro correspondiente) parameter is empty.
