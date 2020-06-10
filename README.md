@@ -2,7 +2,7 @@
 
 ## Archivos requeridos:
 
-Para ejecutar el programa, se debe contar con los siguientes archivos en el directorio donde se está trabajando:
+Para ejecutar el programa correctamente, se debe contar con los siguientes archivos en el directorio donde se está trabajando:
 
 ### tp.sh
 ### query_map.xq
@@ -24,5 +24,11 @@ Los valores permitidos para west y east son [-180, 180], y además west < east. 
 ### Errores administrados
 
 El manejo de errores se realiza en el archivo de XQuery, donde los posibles errores son:
- #### Parametro x (longitud o latid
+ #### The X (parametro correspondiente) parameter is empty.
+Si no se ingresó una latitud o longitud en el parámetro indicado
+#### The X (parametro correspondiente) parameter is not a number
+Si el parámetro ingresado no es un número.
+#### The X (parametro correspondiente) is invalid
+Si el parámetro ingresado no cumple con las condiciones brindadas por la consigna.
+
 
