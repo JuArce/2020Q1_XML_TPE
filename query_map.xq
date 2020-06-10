@@ -49,11 +49,11 @@ declare function local:is_empty() as xs:boolean
 };
 declare function local:is_invalid_long($param) as xs:boolean
 {
-    fn:number($param) > 180
+    fn:number($param) > 180 or fn:number($param) < -180
 };
 declare function local:is_invalid_lat($param) as xs:boolean
 {
-    fn:number($param) > 90
+    fn:number($param) > 90 or fn:number($param) < -90
 };
 declare function local:is_invalid_parameters() as xs:boolean
 {
